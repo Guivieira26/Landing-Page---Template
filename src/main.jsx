@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom/client";
 
 const useInView = (threshold = 0.15) => {
   const ref = useRef(null);
@@ -65,11 +66,48 @@ const stats = [
 // Carousel component
 function Carousel({ items, renderItem }) {
   const [index, setIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startXRef = useRef(null);
   const prev = () => setIndex(i => (i - 1 + items.length) % items.length);
   const next = () => setIndex(i => (i + 1) % items.length);
+
+  const endDrag = (clientX) => {
+    if (startXRef.current == null) return;
+    const deltaX = clientX - startXRef.current;
+    const swipeThreshold = 40;
+
+    if (Math.abs(deltaX) >= swipeThreshold) {
+      if (deltaX < 0) {
+        next();
+      } else {
+        prev();
+      }
+    }
+
+    startXRef.current = null;
+    setIsDragging(false);
+  };
+
   return (
     <div style={{ position: "relative", width: "100%" }}>
-      <div style={{ overflow: "hidden", borderRadius: 20 }}>
+      <div
+        style={{ overflow: "hidden", borderRadius: 20, touchAction: "pan-y", cursor: isDragging ? "grabbing" : "grab" }}
+        onPointerDown={(event) => {
+          startXRef.current = event.clientX;
+          setIsDragging(true);
+        }}
+        onPointerUp={(event) => endDrag(event.clientX)}
+        onPointerCancel={() => {
+          startXRef.current = null;
+          setIsDragging(false);
+        }}
+        onPointerLeave={() => {
+          if (isDragging) {
+            startXRef.current = null;
+            setIsDragging(false);
+          }
+        }}
+      >
         {renderItem(items[index], index)}
       </div>
       {/* Dots */}
@@ -530,3 +568,13 @@ function StatCard({ label, value, suffix, inView, isMobile }) {
     </div>
   );
 }
+
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  throw new Error('Root element "#root" was not found.');
+}
+
+ReactDOM.createRoot(rootElement).render(
+  <App />
+);
