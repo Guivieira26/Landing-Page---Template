@@ -42,24 +42,54 @@ const useIsMobile = () => {
 };
 
 const services = [
-  { icon: "🦴", title: "Fisioterapia Ortopédica", desc: "Recuperação de lesões musculoesqueléticas, pós-cirurgias e tratamento de dores crônicas com técnicas avançadas.", color: "#0EA5E9" },
-  { icon: "🧠", title: "Fisioterapia Neurológica", desc: "Reabilitação de pacientes com AVC, Parkinson, esclerose múltipla e outras condições neurológicas.", color: "#8B5CF6" },
-  { icon: "🤸", title: "Pilates Clínico", desc: "Programa individualizado para fortalecimento, flexibilidade e correção postural com base científica.", color: "#10B981" },
-  { icon: "💆", title: "RPG – Reeducação Postural", desc: "Técnica global que trata a causa das dores posturais, restaurando o alinhamento natural do corpo.", color: "#F59E0B" },
-  { icon: "⚡", title: "Eletroterapia", desc: "Recursos eletrofísicos modernos: TENS, ultrassom terapêutico, laser e correntes bioestimuladoras.", color: "#EF4444" },
-  { icon: "🏊", title: "Hidroterapia", desc: "Reabilitação na água aproveitando as propriedades físicas para maximizar a recuperação com menor impacto.", color: "#06B6D4" },
+  {
+    icon: "🫁",
+    title: "Fisioterapia Respiratória (Atendimento CTI)",
+    desc: "Atuação especializada no cuidado de pacientes críticos, com foco na prevenção de complicações, recuperação funcional, reabilitação respiratória e motora, contribuindo para uma evolução clínica mais segura.",
+    color: "#0EA5E9"
+  },
+  {
+    icon: "🦴",
+    title: "Fisioterapia Ortopédica e Desportiva",
+    desc: "Atuação na prevenção de lesões, recuperação funcional e aprimoramento do desempenho físico, auxiliando atletas e praticantes de atividades esportivas a retornarem às suas atividades com segurança.",
+    color: "#8B5CF6"
+  },
+  {
+    icon: "🧠",
+    title: "Fisioterapia Neurológica",
+    desc: "Tratamento especializado para recuperar a funcionalidade e independência de pacientes com sequelas de AVC, Parkinson, esclerose e outras condições neuromotoras.",
+    color: "#10B981"
+  },
+  {
+    icon: "👵",
+    title: "Fisioterapia na Saúde do Idoso",
+    desc: "Envelhecer com qualidade é manter a capacidade de viver com autonomia. A fisioterapia atua no cuidado integral do idoso, promovendo movimento, segurança e qualidade de vida em todas as fases do envelhecimento.",
+    color: "#F59E0B"
+  },
+  {
+    icon: "☯️",
+    title: "Acupuntura",
+    desc: "Aplicação de técnicas tradicionais para modulação da dor, controle de processos inflamatórios, redução do estresse e equilíbrio sistêmico do organismo.",
+    color: "#EF4444"
+  },
+  {
+    icon: "💼",
+    title: "Fisioterapia do Trabalho e Ergonomia",
+    desc: "Avaliação e intervenção voltadas à saúde ocupacional, prevenção de lesões relacionadas ao trabalho, adequação ergonômica e promoção de ambientes mais seguros e saudáveis.",
+    color: "#06B6D4"
+  },
 ];
 
 const testimonials = [
-  { name: "Ana Souza", role: "Paciente – Pós-operatório de joelho", text: "Após minha cirurgia, achei que não voltaria a correr. O tratamento foi transformador. Hoje faço maratona!", stars: 5 },
-  { name: "Carlos Mendes", role: "Paciente – Hérnia de disco", text: "Tentei de tudo por anos. Em 3 meses de tratamento, recuperei minha qualidade de vida sem cirurgia.", stars: 5 },
-  { name: "Fernanda Lima", role: "Atleta profissional", text: "Como atleta, precisava de alguém que entendesse meu corpo e minha rotina. Resultado excelente.", stars: 5 },
+  { name: "Alexandre", role: "Fisioterapia Neurológica", text: "Me respeitou como pessoa e mesmo com dois meses de internamento, me ajudou muito a fazer com que a depressão ficasse longe. Obrigado pelo apoio, pois sabemos que não é fácil com tanta gente pra ser ajudada e ainda manter um atendimento personalizado, um cuidado efetivo. Obrigado meu amigo, que Deus te abençoe e te guarde, sempre.", stars: 5 },
+  { name: "Kauanny", role: "Atendimento CTI", text: "Eu lhe agradeço muito, dia 22/07 fez um ano da minha alta e do dia em que consegui caminhar com sua ajuda... Deus te abençoe grandiosamente seu trabalho e sua humanidade fazem a diferença na vida de muitas pessoas grande abraço fisio, serei eternamente grata! 🙏🏼", stars: 5 },
+  { name: "Carlos", role: "Paciente - COVID-19", text: "Cara só tenho a agradecer se não fosse sua atenção, cuidado e dedicação talvez eu nem estaria aqui hoje. Que Deus abençõe imensamente e que você continue prestando esse serviço maravilhoso como fisio, muito obrigado! ", stars: 5 },
 ];
 
 const stats = [
-  { label: "Pacientes Atendidos", value: 1200, suffix: "+" },
-  { label: "Anos de Experiência", value: 10, suffix: "+" },
-  { label: "Taxa de Satisfação", value: 98, suffix: "%" },
+  { label: "Pacientes Atendidos", value: 5700, suffix: "+" },
+  { label: "Anos de Experiência", value: 23, suffix: "+" },
+  { label: "Taxa de Satisfação", value: 100, suffix: "%" },
   { label: "Especialidades", value: 12, suffix: "" },
 ];
 
@@ -261,22 +291,23 @@ export default function App() {
           <div style={{ animation: heroInView ? "fadeLeft 0.9s ease forwards" : "none", opacity: 0, textAlign: isMobile ? "center" : "left" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.3)", borderRadius: 50, padding: "6px 16px", marginBottom: 20 }}>
               <span style={{ width: 8, height: 8, background: "#0EA5E9", borderRadius: "50%", display: "inline-block" }} />
-              <span style={{ fontSize: 12, fontWeight: 600, color: "#0EA5E9" }}>Atendimento presencial e online</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#0EA5E9" }}>Atendimento presencial</span>
             </div>
+            {/* o caminho para recuperar sua autonomia começa pelo movimento */}
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? "clamp(34px,9vw,48px)" : "clamp(42px,5vw,64px)", lineHeight: 1.15, color: "#0F172A", marginBottom: 20 }}>
-              Recupere seu{" "}
-              <span style={{ background: "linear-gradient(135deg, #0EA5E9, #8B5CF6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontStyle: "italic" }}>movimento,</span>
-              <br />restaure sua <span style={{ color: "#10B981" }}>vida.</span>
+              O caminho para{" "}
+              <span style={{ background: "linear-gradient(135deg, #0EA5E9, #8B5CF6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontStyle: "italic" }}>recuperar sua autonomia,</span>
+              <br />começa pelo <span style={{ color: "#10B981" }}>movimento.</span>
             </h1>
             <p style={{ fontSize: isMobile ? 15 : 18, color: "#475569", lineHeight: 1.7, marginBottom: 32, maxWidth: 480, margin: isMobile ? "0 auto 28px" : "0 0 32px" }}>
-              Fisioterapia especializada com abordagem personalizada. Cada paciente é único — e seu tratamento também será.
+              A Fisioterapia vai ate você, com cuidado especializado para recuperar movimentos, autonomia e qualidade de vida 
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: isMobile ? "center" : "flex-start" }}>
               <button className="btn-primary" style={{ fontSize: isMobile ? 14 : 16 }} onClick={() => scrollTo("contato")}>Agende sua consulta grátis →</button>
               <button className="btn-outline" style={{ fontSize: isMobile ? 14 : 16 }} onClick={() => scrollTo("serviços")}>Conheça os serviços</button>
             </div>
             <div style={{ display: "flex", gap: 32, marginTop: 40, justifyContent: isMobile ? "center" : "flex-start" }}>
-              {[["10+", "Anos de exp."], ["1.2K+", "Pacientes"], ["98%", "Satisfação"]].map(([n, l]) => (
+              {[["23+", "Anos de exp."], ["5.7K+", "Pacientes"], ["100%", "Satisfação"]].map(([n, l]) => (
                 <div key={l} style={{ textAlign: "center" }}>
                   <div style={{ fontSize: isMobile ? 22 : 28, fontWeight: 800, color: "#0EA5E9" }}>{n}</div>
                   <div style={{ fontSize: 12, color: "#64748B", marginTop: 2 }}>{l}</div>
@@ -367,18 +398,25 @@ export default function App() {
           <div style={{ animation: aboutInView ? (isMobile ? "fadeUp 0.9s ease forwards" : "fadeRight 0.9s ease 0.2s forwards") : "none", opacity: 0, order: isMobile ? 1 : 2 }}>
             <div style={{ display: "inline-block", background: "rgba(14,165,233,0.15)", color: "#38BDF8", padding: "6px 20px", borderRadius: 50, fontSize: 13, fontWeight: 700, marginBottom: 20 }}>SOBRE MIM</div>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 30 : 42, color: "white", lineHeight: 1.2, marginBottom: 20 }}>
-              Dedicado a{" "}
-              <span style={{ color: "#38BDF8", fontStyle: "italic" }}>restaurar</span>{" "}
-              o que mais importa
+              Olhar {" "}
+              <span style={{ color: "#38BDF8", fontStyle: "italic" }}>empático e dedicação</span>{" "}
+              a quem confia na sua recuperação.
             </h2>
             <p style={{ color: "#94A3B8", fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
-              Com mais de 10 anos de experiência, me especializei em unir ciência e empatia para oferecer tratamentos que realmente transformam vidas. Cada sessão é planejada individualmente para as suas necessidades.
+              Com 23 anos de dedicação à Fisioterapia, desenvolvo um trabalho voltado à recuperação funcional, prevenção de limitações e promoção da qualidade de vida. Minha trajetória profissional é marcada pela busca constante de conhecimento e pela integração de diferentes áreas da saúde, permitindo um olhar amplo e individualizado sobre cada paciente.<br />
+
+              Atuo com uma abordagem baseada em avaliação criteriosa, planejamento terapêutico e cuidado humanizado, respeitando as particularidades e objetivos de cada pessoa.<br />
+
+              Minha missão é transformar conhecimento e experiência em resultados, ajudando pacientes a recuperar movimentos, autonomia e confiança para viver melhor.
+
             </p>
             <p style={{ color: "#94A3B8", fontSize: 15, lineHeight: 1.8, marginBottom: 28 }}>
-              Formado pela UFMG com especializações em Terapia Manual, Pilates Clínico e Reabilitação Esportiva.
+              Formado pela Universidade Positivo (Curitiba/PR). <br />
+              Pós-Graduação / Especialização:
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 32 }}>
-              {["Terapia Manual Avançada", "Pilates Clínico", "Reabilitação Esportiva", "Análise Biomecânica"].map(item => (
+              {/* Acupuntura, Terapia Itensiva, Fisioterapia Desportiva, Fusuiterapua do trabalho e ergonomia e gestão hospitalar e serviços de saúde. */}
+              {["Acupuntura", "Fisioterapia em Terapia Intensiva", "Fisioterapia Desportiva", "Fisioterapia do Trabalho e Ergonomia", "Gestão Hospitalar e Serviços de Saúde"].map(item => (
                 <div key={item} style={{ display: "flex", alignItems: "center", gap: 10, color: "white", fontSize: 13 }}>
                   <div style={{ width: 20, height: 20, borderRadius: "50%", background: "#0EA5E9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, flexShrink: 0 }}>✓</div>
                   {item}
@@ -396,7 +434,7 @@ export default function App() {
                 <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 12, fontWeight: 500 }}>Insira sua foto aqui</div>
               </div>
               <div style={{ position: "absolute", bottom: 20, left: 20, right: 20, background: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 16, padding: "14px 20px" }}>
-                <div style={{ color: "white", fontWeight: 700, fontSize: isMobile ? 16 : 20 }}>CREFITO Nº 000000</div>
+                <div style={{ color: "white", fontWeight: 700, fontSize: isMobile ? 16 : 20 }}>CREFITO Nº 54341-F</div>
                 <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 12 }}>Fisioterapeuta Registrado</div>
               </div>
             </div>
@@ -456,7 +494,7 @@ export default function App() {
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <div style={{ display: "inline-block", background: "rgba(14,165,233,0.15)", color: "#38BDF8", padding: "6px 20px", borderRadius: 50, fontSize: 13, fontWeight: 700, marginBottom: 14 }}>CONTATO</div>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 30 : 44, color: "white", marginBottom: 12 }}>Comece sua recuperação hoje</h2>
-            <p style={{ fontSize: 15, color: "#94A3B8" }}>Primeira avaliação gratuita. Agende sem compromisso.</p>
+            {/* <p style={{ fontSize: 15, color: "#94A3B8" }}>Primeira avaliação gratuita. Agende sem compromisso.</p> */}
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 20 }}>
@@ -487,7 +525,7 @@ export default function App() {
                 Enviar e Agendar Consulta →
               </button>
               <p style={{ color: "#64748B", fontSize: 13, marginTop: 14 }}>
-                Ou fale via WhatsApp: <span style={{ color: "#0EA5E9", fontWeight: 600, cursor: "pointer" }}>(31) 9 0000-0000</span>
+                Ou fale via WhatsApp: <span style={{ color: "#0EA5E9", fontWeight: 600, cursor: "pointer" }}>(31) 9 9133-7130</span>
               </p>
             </div>
           </div>
@@ -499,9 +537,9 @@ export default function App() {
             gap: 16, marginTop: 48
           }}>
             {[
-              { icon: "📍", title: "Endereço", info: "Savassi, Belo Horizonte – MG" },
-              { icon: "🕐", title: "Horários", info: "Seg–Sex: 7h–20h | Sáb: 8h–14h" },
-              { icon: "📱", title: "WhatsApp", info: "(31) 9 0000-0000" },
+              { icon: "📍", title: "Endereço", info: "Belo Horizonte – MG" },
+              { icon: "🕐", title: "Horários", info: "Seg–Sex: 7h–18h" },
+              { icon: "📱", title: "WhatsApp", info: "(31) 9 9133-7130" },
             ].map(({ icon, title, info }) => (
               <div key={title} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 18, padding: isMobile ? "18px 24px" : "24px", textAlign: isMobile ? "left" : "center", display: "flex", alignItems: "center", gap: isMobile ? 16 : 0, flexDirection: isMobile ? "row" : "column" }}>
                 <div style={{ fontSize: 28, marginBottom: isMobile ? 0 : 10, flexShrink: 0 }}>{icon}</div>
@@ -549,7 +587,7 @@ export default function App() {
       </footer>
 
       {/* WhatsApp float */}
-      <a href="https://wa.me/5531900000000" target="_blank" rel="noreferrer"
+      <a href="https://wa.me/5531991337130" target="_blank" rel="noreferrer"
         style={{ position: "fixed", bottom: 24, right: 24, zIndex: 200, width: 56, height: 56, borderRadius: "50%", background: "#25D366", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26, boxShadow: "0 8px 30px rgba(37,211,102,0.5)", textDecoration: "none", animation: "float 3s ease-in-out infinite" }}>
         💬
       </a>
